@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text="裁剪"
+        />
+
+    <Button
+        android:id="@+id/bt_crop_capture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="从Camera获取图片-->裁剪"
+        />
+
+    <Button
+        android:id="@+id/bt_crop_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="从Gallery获取图片-->裁剪"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text="不裁剪"
+        />
+
+    <Button
+        android:id="@+id/bt_capture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="从Camera获取图片"
+        />
+
+    <Button
+        android:id="@+id/bt_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="从Gallery获取图片"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:text="生成图片"
+        />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher"
+        android:background="#f7f8f9"
+        />
+</LinearLayout>

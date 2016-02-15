@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+
+
+
+version = "6.0"
+android {
+    compileSdkVersion 20
+    buildToolsVersion "20.0.0"
+    resourcePrefix "key"//随便填写的
+
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 20
+        versionCode 16
+        versionName version
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+
