@@ -9,10 +9,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-
-import org.hybridsquad.android.library.CropCallback;
-import org.hybridsquad.android.library.CropHelper;
-import org.hybridsquad.android.library.CropParams;
+import com.peng.photocrop.CropCallback;
+import com.peng.photocrop.CropHelper;
+import com.peng.photocrop.CropParams;
+import com.squareup.picasso.Picasso;
 
 
 public class TestActivity extends AppCompatActivity implements CropCallback, View.OnClickListener {
@@ -62,7 +62,7 @@ public class TestActivity extends AppCompatActivity implements CropCallback, Vie
             }
             break;
             case R.id.bt_gallery: {
-                mCropParams.setCompress(true);
+                mCropParams.setCompress(false);
                 mCropHelper.startGalleryIntent();
             }
             break;
@@ -73,7 +73,7 @@ public class TestActivity extends AppCompatActivity implements CropCallback, Vie
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //交给代理方法去处理
-        mCropHelper.handleResult( requestCode, resultCode, data);
+        mCropHelper.handleResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -96,18 +96,27 @@ public class TestActivity extends AppCompatActivity implements CropCallback, Vie
     }
 
     @Override
-    public void onPhotoSelect(Uri uri) {
+    public void onPhotoSelected(Uri uri) {
         Log.i(TAG, "Select Uri in path: " + uri.getPath());
         mCropHelper.display(mImageView, mCropParams, uri);
 //        Picasso.with(this).load(uri).resize(mImageView.getMeasuredWidth(),mImageView.getMeasuredHeight()).centerInside().skipMemoryCache().into(mImageView);
     }
 
     @Override
-    public void onCompressed(Uri uri) {
+    public void onPhotoTaken(Uri uri) {
+        Log.i(TAG, "Taken Uri in path: " + uri.getPath());
+        mCropHelper.display(mImageView, mCropParams, uri);
+//        Picasso.with(this).load(uri).resize(mImageView.getMeasuredWidth(),mImageView.getMeasuredHeight()).centerInside().into(mImageView);
+    }
+
+    @Override
+    public void onPhotoCompressed(Uri uri) {
         Log.i(TAG, "Compress Uri in path: " + uri.getPath());
         mCropHelper.display(mImageView, mCropParams, uri);
 //        Picasso.with(this).load(uri).resize(mImageView.getMeasuredWidth(),mImageView.getMeasuredHeight()).centerInside().skipMemoryCache().into(mImageView);
     }
+
+
 
     @Override
     public void onCancel(int requestCode) {

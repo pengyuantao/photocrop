@@ -14,7 +14,7 @@ public class CropParams {
     public static final int DEFAULT_OUTPUT = 300;
     public static final int DEFAULT_COMPRESS_WIDTH = 320;
     public static final int DEFAULT_COMPRESS_HEIGHT = 320;
-    public static final int DEFAULT_COMPRESS_QUALITY = 90;
+    public static final int DEFAULT_COMPRESS_QUALITY = 100;
 
     private String type;//类型
     private String outputFormat;//输出格式

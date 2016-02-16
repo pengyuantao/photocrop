@@ -171,18 +171,25 @@ public class CropHelper {
                     } else {
                         mCropCallback.onFailed("CropCallback's context must not be null!");
                     }
+                    //判断是否需要截图
+                    if (isCrop) {
+                        mCropCallback.handleIntent(buildCropIntent(cropParams), REQUEST_CROP);
+                    } else {
+                        onPhotoSelectEnsure(mCropCallback,cropParams);
+                    }
+                    break;
                 case REQUEST_CAMERA:
                     //判断是否需要截图
                     if (isCrop) {
                         mCropCallback.handleIntent(buildCropIntent(cropParams), REQUEST_CROP);
                     } else {
-                        onPhotoEnsure(mCropCallback, cropParams);
+                      onPhotoTakenEnsure(mCropCallback, cropParams);
                     }
                     break;
                 case REQUEST_CROP:
                     if (isPhotoReallyCropped(cropParams.getUri())) {
                         Log.d(TAG, "Photo cropped success!");
-                        onPhotoEnsure(mCropCallback, cropParams);
+                        onPhotoCropEnsure(mCropCallback, cropParams);
                     }
                     break;
 
@@ -191,23 +198,59 @@ public class CropHelper {
     }
 
 
-
-
     /**
-     * 当确定了用户所选择的图片
+     * 当确定了用户确定拍照后的图片
      *
      * @param handler
      * @param cropParams
      */
-    private void onPhotoEnsure(CropCallback handler, CropParams cropParams) {
+    private void onPhotoTakenEnsure(CropCallback handler, CropParams cropParams) {
         if (cropParams.isCompress()) {
-            Uri originUri = cropParams.getUri();
-            Uri compressUri = generateCompressUri();
-            CompressImageUtils.compressImageFile(cropParams, originUri, compressUri);
-            handler.onCompressed(compressUri);
+            handler.onPhotoCompressed(getCompresUri(cropParams));
+        } else {
+            handler.onPhotoTaken(cropParams.getUri());
+        }
+    }
+
+    /**
+     * 当确定了用户确定选择的图片
+     *
+     * @param handler
+     * @param cropParams
+     */
+    private void onPhotoSelectEnsure(CropCallback handler, CropParams cropParams) {
+        if (cropParams.isCompress()) {
+            handler.onPhotoCompressed(getCompresUri(cropParams));
+        } else {
+            handler.onPhotoSelected(cropParams.getUri());
+        }
+    }
+
+
+    /**
+     * 当确定了用户确定裁剪的图片
+     *
+     * @param handler
+     * @param cropParams
+     */
+    private void onPhotoCropEnsure(CropCallback handler, CropParams cropParams) {
+        if (cropParams.isCompress()) {
+            handler.onPhotoCompressed(getCompresUri(cropParams));
         } else {
             handler.onPhotoCropped(cropParams.getUri());
         }
+    }
+
+    /**
+     * 开始压缩并且返回压缩后的Uri
+     * @param cropParams
+     * @return
+     */
+    private Uri getCompresUri (CropParams cropParams){
+        Uri originUri = cropParams.getUri();
+        Uri compressUri = generateCompressUri();
+        CompressImageUtils.compressImageFile(cropParams, originUri, compressUri);
+        return compressUri;
     }
 
     /**
@@ -236,12 +279,13 @@ public class CropHelper {
         if (mCropCallback == null) {
             return;
         }
+        clearCacheDir();
+        mCropCallback.getCropParams().setUri(generateUri());
         mCropCallback.handleIntent(new Intent(Intent.ACTION_PICK)
                 .setType("image/*")
                 .putExtra(MediaStore.EXTRA_OUTPUT, mCropCallback.getCropParams().getUri())
                 .putExtra("rotateToCorrectDirection", true
                 ), REQUEST_PICK);
-
 
     }
 
@@ -267,7 +311,8 @@ public class CropHelper {
         if (mCropCallback == null) {
             return;
         }
-//        clearCache();
+        clearCacheDir();
+        mCropCallback.getCropParams().setUri(generateUri());
         mCropCallback.handleIntent(new Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 .putExtra("rotateToCorrectDirection", true)
                 .putExtra(MediaStore.EXTRA_OUTPUT, mCropCallback.getCropParams().getUri()), REQUEST_CAMERA);
@@ -303,7 +348,7 @@ public class CropHelper {
      * 删除所有的图片文件
      */
     public void clearCacheDir() {
-        CropFileUtils.deleteFolderFile(DEFAULT_CACHE_FILE, true);
+        CropFileUtils.deleteFolderFile(DEFAULT_CACHE_FILE, false);
     }
 
     /**

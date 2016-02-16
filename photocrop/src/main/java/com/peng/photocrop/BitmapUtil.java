@@ -6,11 +6,14 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.net.Uri;
+import android.util.Log;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class BitmapUtil {
+
+    public static final String TAG = "BitmapUtil";
 
     public static Bitmap decodeUriAsBitmap(Context context, Uri uri) {
         if (context == null || uri == null) return null;
@@ -39,6 +42,7 @@ public class BitmapUtil {
             m.setRotate(degree); // 旋转angle度
             bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height,m, true);// 从新生成图片
         }
+        Log.e(TAG, degree + "旋转的角度");
         return bitmap;
     }
 
@@ -67,6 +71,22 @@ public class BitmapUtil {
             e.printStackTrace();
         }
         return degree;
+    }
+
+    public static Bitmap createBitmapThumbnail(Bitmap bitMap, boolean needRecycle, int newHeight, int newWidth) {
+        int width = bitMap.getWidth();
+        int height = bitMap.getHeight();
+        // 计算缩放比例
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        // 取得想要缩放的matrix参数
+        Matrix matrix = new Matrix();
+        matrix.postScale(scaleWidth, scaleHeight);
+        // 得到新的图片
+        Bitmap newBitMap = Bitmap.createBitmap(bitMap, 0, 0, width, height, matrix, true);
+        if (needRecycle)
+            bitMap.recycle();
+        return newBitMap;
     }
 
 

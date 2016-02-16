@@ -33,13 +33,16 @@ public class CompressImageUtils {
             // Decode bitmap with inSampleSize set
             options.inJustDecodeBounds = false;
             bitmap = BitmapFactory.decodeFile(originUri.getPath(), options);
+            //旋转一下图片的正确方向
+            bitmap = BitmapUtil.reviewPicRotate(bitmap, originUri.getPath());
             File compressFile = new File(compressUri.getPath());
             if (!compressFile.exists()) {
                 boolean result = compressFile.createNewFile();
                 Log.d(TAG, "Target " + compressUri + " not exist, create a new one " + result);
             }
             out = new FileOutputStream(compressFile);
-            boolean result = bitmap.compress(Bitmap.CompressFormat.JPEG, cropParams.getCompressQuality(), out);
+            boolean result = bitmap.compress(Bitmap.CompressFormat.PNG, cropParams.getCompressQuality(), out);
+            out.flush();
             Log.d(TAG, "Compress bitmap " + (result ? "succeed" : "failed"));
         } catch (Exception e) {
             Log.e(TAG, "compressInputStreamToOutputStream", e);

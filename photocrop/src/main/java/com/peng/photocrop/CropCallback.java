@@ -18,9 +18,11 @@ public interface CropCallback {
 
     void onPhotoCropped(Uri uri);//图片裁剪
 
-    void onPhotoSelect(Uri uri);//图片选择
+    void onPhotoSelected(Uri uri);//图片选择
 
-    void onCompressed(Uri uri);//图片压缩
+    void onPhotoTaken(Uri uri);//图片拍照
+
+    void onPhotoCompressed(Uri uri);//图片压缩
 
     void onCancel(int requestCode);//取消操作
 
