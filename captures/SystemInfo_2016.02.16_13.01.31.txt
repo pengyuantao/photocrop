@@ -1,0 +1,31 @@
+Activity Resolver Table:
+  Non-Data Actions:
+      android.intent.action.MAIN:
+        42732850 org.hybridsquad.android.photocropper/.TestActivity filter 427625b8
+ 
+Packages:
+  Package [org.hybridsquad.android.photocropper] (41d00cc8):
+    userId=10132 gids=[1028, 1015, 1006]
+    sharedUser=null
+    pkg=Package{42b65ff8 org.hybridsquad.android.photocropper}
+    codePath=/data/app/org.hybridsquad.android.photocropper-2.apk
+    resourcePath=/data/app/org.hybridsquad.android.photocropper-2.apk
+    nativeLibraryPath=/data/app-lib/org.hybridsquad.android.photocropper-2
+    versionCode=3
+    applicationInfo=ApplicationInfo{42b66098 org.hybridsquad.android.photocropper}
+    flags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    versionName=1.0.2
+    dataDir=/data/data/org.hybridsquad.android.photocropper
+    targetSdk=20
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    timeStamp=2016-02-16 12:58:01
+    firstInstallTime=2016-01-22 18:13:18
+    lastUpdateTime=2016-02-16 12:58:03
+    signatures=PackageSignatures{41d00d48 [41d1a9b8]}
+    permissionsFixed=true haveGids=true installStatus=1
+    pkgFlags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    User 0:  installed=true stopped=false notLaunched=false enabled=0
+    grantedPermissions:
+      android.permission.CAMERA
+      android.permission.READ_EXTERNAL_STORAGE
+      android.permission.WRITE_EXTERNAL_STORAGE

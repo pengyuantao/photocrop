@@ -1,0 +1,33 @@
+Applications Memory Usage (kB):
+Uptime: 97195760 Realtime: 97195760
+
+** MEMINFO in pid 14198 [org.hybridsquad.android.photocropper] **
+                         Shared  Private     Heap     Heap     Heap
+                   Pss    Dirty    Dirty     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------
+       Native       20        4       20    13204     3638      821
+       Dalvik     6959      740     4652     8120     6199     1921
+       Cursor        0        0        0                           
+       Ashmem        0        0        0                           
+    Other dev        4       48        0                           
+     .so mmap     1865      144     1420                           
+    .jar mmap        0        0        0                           
+    .apk mmap       82        0        0                           
+    .ttf mmap      117        0        0                           
+    .dex mmap     1196        0        8                           
+   Other mmap     1655     1680       88                           
+      Unknown     2229       24     2216                           
+        TOTAL    14127     2640     8404    21324     9837     2742
+ 
+ Objects
+               Views:       44         ViewRootImpl:        3
+         AppContexts:        4           Activities:        2
+              Assets:        4        AssetManagers:        4
+       Local Binders:       10        Proxy Binders:       19
+    Death Recipients:        0
+     OpenSSL Sockets:        0
+ 
+ SQL
+         MEMORY_USED:        0
+  PAGECACHE_OVERFLOW:        0          MALLOC_SIZE:        0
+ 

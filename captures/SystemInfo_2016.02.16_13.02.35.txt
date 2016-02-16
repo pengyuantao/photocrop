@@ -1,0 +1,89 @@
+Applications Graphics Acceleration Info:
+Uptime: 97241921 Realtime: 97241921
+
+** Graphics info for pid 14198 [org.hybridsquad.android.photocropper] **
+
+Recent DisplayList operations
+              Translate
+              DrawText
+              RestoreToCount
+            DrawDisplayList
+              Save
+              ClipRect
+              Translate
+              DrawText
+              RestoreToCount
+            DrawDisplayList
+              SetupColorFilter
+              DrawRoundRect
+              ResetColorFilter
+              Save
+              ClipRect
+              Translate
+              DrawText
+              RestoreToCount
+            DrawDisplayList
+              SetupColorFilter
+              DrawRoundRect
+              ResetColorFilter
+              Save
+              ClipRect
+              Translate
+              DrawText
+              RestoreToCount
+            DrawDisplayList
+              Save
+              ClipRect
+              Translate
+              DrawText
+              RestoreToCount
+            DrawDisplayList
+              DrawRect
+              Save
+              ConcatMatrix
+              DrawBitmapRect
+              RestoreToCount
+          DrawPatch
+        DrawDisplayList
+          DrawRect
+          DrawDisplayList
+            DrawDisplayList
+              Save
+              ClipRect
+              DrawText
+              RestoreToCount
+        DrawPatch
+    RestoreToCount
+
+Caches:
+Current memory usage / total memory usage (bytes):
+  TextureCache            23040 / 25165824
+  LayerCache                  0 / 16777216
+  GradientCache               0 /   524288
+  PathCache                   0 /  4194304
+  CircleShapeCache            0 /  1048576
+  OvalShapeCache              0 /  1048576
+  RoundRectShapeCache         0 /  1048576
+  RectShapeCache              0 /  1048576
+  ArcShapeCache               0 /  1048576
+  TextDropShadowCache         0 /  2097152
+  FontRenderer 0         262144 /   262144
+Other:
+  FboCache                    0 /       16
+  PatchCache                  1 /      512
+Total memory usage:
+  285184 bytes, 0.27 MB
+
+Profile data in ms:
+
+	org.hybridsquad.android.photocropper/org.hybridsquad.android.photocropper.TestActivity/android.view.ViewRootImpl@41cc1068
+View hierarchy:
+
+  org.hybridsquad.android.photocropper/org.hybridsquad.android.photocropper.TestActivity/android.view.ViewRootImpl@41cc1068
+  20 views, 2.06 kB of display lists, 1 frames rendered
+
+
+Total ViewRootImpl: 1
+Total Views:        20
+Total DisplayList:  2.06 kB
+
