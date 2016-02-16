@@ -63,5 +63,5 @@ mCropParams.setOutput(600,285); //设置输出长宽值<br>
       CropParams getCropParams();//获取裁剪参数
     }
 
-![baidu](http://www.baidu.com/img/bdlogo.gif "使用效果图")  
+![baidu](https://github.com/pengyuantao/photocrop/blob/master/images/display.gif "使用效果图")  
  
