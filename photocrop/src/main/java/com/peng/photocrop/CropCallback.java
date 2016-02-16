@@ -1,4 +1,4 @@
-package org.hybridsquad.android.library;
+package com.peng.photocrop;
 
 import android.content.Intent;
 import android.net.Uri;
