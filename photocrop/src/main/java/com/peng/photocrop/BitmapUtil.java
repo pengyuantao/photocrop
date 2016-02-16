@@ -42,7 +42,7 @@ public class BitmapUtil {
             m.setRotate(degree); // 旋转angle度
             bitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height,m, true);// 从新生成图片
         }
-        Log.e(TAG, degree + "旋转的角度");
+//        Log.e(TAG, degree + "旋转的角度");
         return bitmap;
     }
 

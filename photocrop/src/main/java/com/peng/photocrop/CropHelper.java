@@ -84,7 +84,6 @@ public class CropHelper {
         if (isCheck =  checkCacheFloder()) {
             return Uri.fromFile(new File(DEFAULT_CACHE_FILE)).buildUpon().appendPath(fileName.concat(System.currentTimeMillis()+".jpg")).build();
         }
-        Log.e(TAG, isCheck + "");
         return null;
     }
 
@@ -138,7 +137,8 @@ public class CropHelper {
             CropParams cropParams = mCropCallback.getCropParams();
 
             if (cropParams.getUri() == null) {
-                Log.e(TAG, " ------------?  cropParams Url  is null ");
+                Log.e(TAG, "cropParams Url is null ");
+                return ;
             }
 
 
@@ -206,7 +206,7 @@ public class CropHelper {
      */
     private void onPhotoTakenEnsure(CropCallback handler, CropParams cropParams) {
         if (cropParams.isCompress()) {
-            handler.onPhotoCompressed(getCompresUri(cropParams));
+            handler.onPhotoCompressed(getCompressUri(cropParams));
         } else {
             handler.onPhotoTaken(cropParams.getUri());
         }
@@ -220,7 +220,7 @@ public class CropHelper {
      */
     private void onPhotoSelectEnsure(CropCallback handler, CropParams cropParams) {
         if (cropParams.isCompress()) {
-            handler.onPhotoCompressed(getCompresUri(cropParams));
+            handler.onPhotoCompressed(getCompressUri(cropParams));
         } else {
             handler.onPhotoSelected(cropParams.getUri());
         }
@@ -235,7 +235,7 @@ public class CropHelper {
      */
     private void onPhotoCropEnsure(CropCallback handler, CropParams cropParams) {
         if (cropParams.isCompress()) {
-            handler.onPhotoCompressed(getCompresUri(cropParams));
+            handler.onPhotoCompressed(getCompressUri(cropParams));
         } else {
             handler.onPhotoCropped(cropParams.getUri());
         }
@@ -244,9 +244,9 @@ public class CropHelper {
     /**
      * 开始压缩并且返回压缩后的Uri
      * @param cropParams
-     * @return
+     * @return Uri
      */
-    private Uri getCompresUri (CropParams cropParams){
+    private Uri getCompressUri(CropParams cropParams){
         Uri originUri = cropParams.getUri();
         Uri compressUri = generateCompressUri();
         CompressImageUtils.compressImageFile(cropParams, originUri, compressUri);
