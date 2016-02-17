@@ -1,5 +1,6 @@
 选取和裁剪图片工具
 =================
+![baidu](http://img.my.csdn.net/uploads/201602/16/1455629759_9142.gif "使用效果图") 
 功能：
 ------
 1、使用拍照图片<br>
@@ -63,5 +64,5 @@ mCropParams.setOutput(600,285); //设置输出长宽值<br>
       CropParams getCropParams();//获取裁剪参数
     }
 
-![baidu](https://github.com/pengyuantao/photocrop/blob/master/images/display.gif "使用效果图")  
+ 
  
