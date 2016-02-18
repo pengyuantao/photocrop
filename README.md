@@ -43,7 +43,7 @@ mCropParams.setOutput(600,285); //设置输出长宽值<br>
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();<br>
+        super.onDestroy();
         mCropHelper.clearCacheDir();
     }
     
