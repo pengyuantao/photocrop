@@ -17,7 +17,8 @@
 引入工程：
 ------
 eclipse: jar目录下的jar包，解压放入工程即可。<br>
-AndroidStudio: 在build.gradle文件里的dependencies中，添加 compile 'com.peng.lib:photocrop:2.4' <br>
+AndroidStudio: 在build.gradle文件里的dependencies中，<br>
+添加 compile 'com.peng.lib:photocrop:2.4' <br>
 
 如何使用：
 ------
