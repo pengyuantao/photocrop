@@ -11,8 +11,15 @@
 兼容性：
 ------
 1、解决无法回传大图<br>
-2、兼容到6.0
-3、解决不同手机对图片旋转，显示不正确
+2、兼容到6.0<br>
+3、解决不同手机对图片旋转，显示不正确<br>
+
+引入工程：
+------
+eclipse: jar目录下的jar包，解压放入工程即可。<br>
+<br>
+AndroidStudio: 在build.gradle文件里的dependencies中，<br>
+添加 compile 'com.peng.lib:photocrop:2.4' <br>
 
 如何使用：
 ------
@@ -38,7 +45,7 @@ mCropParams.setOutput(600,285); //设置输出长宽值<br>
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();<br>
+        super.onDestroy();
         mCropHelper.clearCacheDir();
     }
     
