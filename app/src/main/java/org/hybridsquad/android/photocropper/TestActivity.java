@@ -21,6 +21,8 @@ public class TestActivity extends AppCompatActivity implements CropCallback, Vie
 
     ImageView mImageView;
 
+    private String key;
+
     CropParams mCropParams;
     private CropHelper mCropHelper;
 
